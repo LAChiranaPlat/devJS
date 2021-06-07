@@ -4,64 +4,144 @@
 	<title></title>
 </head>
 <body>
-<script type="text/javascript">
-	
-	function proceso(sueldo)
-	{
 
-		function procesar(bono){
-
-			console.log(sueldo+bono);
+	<script type="text/javascript">
 		
+		function sumar(cant1, cant2){
+			console.log(cant1+cant2);
 		}
 
-		return procesar;
-	} 
+		function saludar(nombres, apellidos,hora=0)
+		{
+			let saludo;
 
-	let x=proceso(200);
-	console.log(x);
-	x(100);
+			if(hora<12){
+				saludo="buenos dias";
+			}else if(hora < 18){
+				saludo ="buenas tardes";
+			}else{
+				saludo="buenas noches";
+			}
 
-	proceso(500)(100);
+			console.log(saludo+" "+nombres+", "+apellidos);
 
-	console.clear();
+		}
 
-	function procesar(...data){//al declarar
-		//parametro rest
-		console.log(data);
-	}
+		function limpiar(){
+			console.clear();
+		}
+		
+		sumar(12,24);
 
-	procesar(1,2,3,4,5,5)
+		saludar("Alexander","Huarcaya");
+		limpiar();
 
-	function promedio(n1,n2,n3){
+		function totales(n1,n2,n3)
+		{
+			//console.log(n1+n2+n3);
+			return n1+n2+n3;
+		}
 
-		console.log(n1,n2,n3);
+		let total=totales(10,11,12);
 
-	}
+		//console.log(total/3);
 
-	let notas=[12,13,14];
+		function cuadrado(numero){
+			return numero**2;
+		}
 
-	promedio(...notas);//al invocar una funcion
-	//operador spread
+		console.log(cuadrado(7));
 
-	console.clear();
+		let a=cuadrado(5);
 
-	function infoAlumno(nombre){
-		console.log(nombre);
-	}
+		console.log(a/2);
 
-	let showAlumno=function(name){
-		console.log(name);
-	}
+		/*
+		declaracion de funcion
+			parametros
+			parametros con valor por defecto
+			return
+		*/
+		limpiar();
 
-	infoAlumno("Alexander");
-	showAlumno("Marcos");
+		function sumar(a,b,c){
+			
+			/*
+			let total=0;
+			for(let cant of Cantidades){
+				total+=cant;
+			}
+			console.log(total + " falto este "+ a);
+			*/
 
-	console.clear();
-	let saludar= (nombre="S/N") => console.log(nombre);
+			console.log(arguments[2]);
+			//arguments.callee(1,2,3)
+			//sumar(1,2,3)
 
-	saludar();
+		}
 
-</script>
+		sumar("ana","maria","jose");
+
+		limpiar();
+		x=0;
+
+		function contador(x){
+
+			if(x>=10){
+				return
+			}
+			console.log(x);		
+			
+			//arguments.callee(x+1);
+			contador(x+1);
+
+		}
+
+		contador(1);
+
+		limpiar();
+
+		//clase	=>	objetos	[	constructor	]
+		
+		function totalSueldo(trab1, trab2, trab3){
+			
+			function bono(sueldo){
+				return sueldo+100;
+			}	
+
+			console.log(bono(trab1)+bono(trab2)+bono(trab3));
+
+		}
+
+		totalSueldo(100,200,300);//z
+
+
+		function ejem(){//declarar una funcion
+			
+		}
+
+		
+		let aa= function(){//expresion Function
+							//funcion anonima
+							console.log(arguments.callee);
+
+							//mdn
+							//w3 schooll
+
+		}
+
+		aa();
+///////////////////////////////////////
+		limpiar();
+
+		function fun(a,b,c){
+			console.log(c);
+		}
+
+		let y=[4,5,6];
+
+		fun(...y);//operador spread
+	</script>
+
 </body>
 </html>

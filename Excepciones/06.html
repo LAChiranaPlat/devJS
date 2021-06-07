@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	function manejadorExcepcion(Excepción){
+		console.warn("Excepción Capturada: ",Excepción.name);
+		console.warn(Excepción.mensaje);
+		console.warn(Excepción.usuario);
+	}
+
+	try{
+		
+		let n1=30;
+
+		if(n1>0 && n1<=20){
+			console.log("ok");
+		}else{
+			//throw "Error: Nota no valida";
+			//throw new Error("La nota no es valida");
+			throw {name:"Error de Notas",mensaje:"Las notas solo son entre 0 y 20",usuario:"UsuarioActual"}
+		}
+
+		console.log("Siguiente Nota");
+
+	}catch (x){
+		manejadorExcepcion(x);
+
+
+	}
+
+</script>
+</body>
+</html>
