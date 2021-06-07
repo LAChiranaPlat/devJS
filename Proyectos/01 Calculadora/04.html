@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+
+	
+	//Calculadora, reusemos el codigo o procedimiento
+	//empleando recursividad
+	let operador;
+	let cant=0;
+	result=0;
+	
+	function calculadora(cant1=result){
+		result=+cant1;
+		operador=prompt("Operacion a realizar: +, -, *, /; de querer salir ingrese: =");
+
+		if(operador=="=")
+			return;
+
+		if(operador!="+" && operador!="-" && operador!="/" && operador!="*")
+			throw "La operacion ingresada es incorrecta";
+
+		cant=+prompt("Ingrese Cantidad");
+
+		if(isNaN(cant) || isNaN(result)){
+			throw "Solo se permiten numeros";
+		}else{
+
+
+
+			if(operador=="+"){
+				result+=cant;
+				console.log(result);
+				//arguments.callee();
+				calculadora();
+			}else if(operador=="-"){
+				result-=cant;
+				console.log(result);
+				//arguments.callee();
+				calculadora();
+			}else if(operador=="/"){
+				result/=cant;
+				console.log(result);
+				//arguments.callee();
+				calculadora();
+			}else if(operador=="*"){
+				result*=cant;
+				console.log(result);
+				//arguments.callee();
+				calculadora();
+			}
+		}
+
+	}
+
+	/*
+	Para solucionar el problema anterior vamos a crear una funcion que le mande el primer valor a la funcion y luego recien se inicia la recursividad, repito la nueva funcion solo le pasara la primera cantidad, luego la funcion anterior hara su trabajo sola.
+
+	Aprovechamos tambien para verificar que las operaciones ingresadas sean las correctas
+	*/
+
+	function myCal(){
+		let n=prompt("Ingrese Cantidad");
+		
+		calculadora(n);
+	}
+
+	myCal();
+
+</script>
+</body>
+</html>

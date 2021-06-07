@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	//Calculadora, reusemos el codigo o procedimiento
+	//empleando recursividad
+	console.clear();
+
+	let operador;
+	let cant=0;
+	let mem=0;
+	result=0;
+	
+	function calculadora(){
+
+		operador=prompt("Operacion a realizar: +, -, *, /; de querer salir ingrese: =");
+		
+		if(operador=="=")
+			return;
+
+		cant=+prompt("Ingrese Cantidad");
+
+		if(isNaN(cant)){
+			throw "Solo se permiten numeros";
+		}else{
+
+			if(operador=="+"){
+				result+=cant;
+				console.log(result);
+				arguments.callee();
+			}else if(operador=="-"){
+				result-=cant;
+				console.log(result);
+				arguments.callee;
+			}else if(operador=="/"){
+				result/=cant;
+				console.log(result);
+				arguments.callee();
+			}else if(operador=="*"){
+				result*=cant;
+				console.log(result);
+				arguments.callee;
+			}
+		}
+	}
+
+	calculadora();
+
+	//aparentemente funciona bien excepto que tienes que ingresar primero la operacion y como que eso no va, pero vamos por buen camino, al menos podemos operar todas las veces necesarias
+
+</script>
+</body>
+</html>
