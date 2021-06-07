@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bucles</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+	for (var tablas = 1; tablas <= 12; tablas++) {
+
+		console.log("###################################");
+		
+		for (var i = 0; i <= 12; i++) {
+			let result=i*tablas;
+			console.log(tablas + " * "+ i + " = " + result);
+		}
+
+		console.log("###################################");
+
+	}
+
+	let cajaNombres=["maria","pedro","luis","ana"];
+	let nombres="maria";
+	//arreglos, cajas, matricez, pila
+
+	console.log(cajaNombres);
+
+	console.log(cajaNombres[2] + " y "+ cajaNombres[0]);
+	
+	
+	for (var i = 0; i <= cajaNombres.length; i++) {
+		console.log(cajaNombres[i]);
+	}
+
+	for(let user of cajaNombres)
+	{
+		console.log(user);
+	}
+
+	console.log("##################################");
+
+	for(let userI in cajaNombres)
+	{
+		console.log(userI);
+	}
+
+	let valor=0;
+
+	while(valor<cajaNombres.length){
+
+		//console.log("[" +valor+"] Siempre sera Verdad");
+
+		console.log(cajaNombres[valor]);
+
+		valor++;
+
+	}
+	
+	//Algoritmo de la Burbuja
+	let numeros=[	1	,	5	,9,3,7,4,1,56,8,2,1,9,100,52];
+	
+	numeros[10];
+
+	console.log(numeros);
+	let memoria=0;
+
+	for (var i = 1; i < numeros.length; i++) {
+		
+		for (var j = 0; j < numeros.length-1; j++) {
+			
+			if(numeros[j] > numeros[j+1]){
+				
+				memoria=numeros[j];
+
+				numeros[j]=numeros[j+1];
+				numeros[j+1]=memoria;
+
+			}
+
+		}
+
+	}
+
+	console.log(numeros);
+
+	</script>
+</body>
+</html>
