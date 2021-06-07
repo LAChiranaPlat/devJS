@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	function proceso(sueldo)
+	{
+
+		function procesar(bono){
+
+			console.log(sueldo+bono);
+		
+		}
+
+		return procesar;
+	} 
+
+	let x=proceso(200);
+	console.log(x);
+	x(100);
+
+	proceso(500)(100);
+
+	console.clear();
+
+	function procesar(...data){//al declarar
+		//parametro rest
+		console.log(data);
+	}
+
+	procesar(1,2,3,4,5,5)
+
+	function promedio(n1,n2,n3){
+
+		console.log(n1,n2,n3);
+
+	}
+
+	let notas=[12,13,14];
+
+	promedio(...notas);//al invocar una funcion
+	//operador spread
+
+	console.clear();
+
+	function infoAlumno(nombre){
+		console.log(nombre);
+	}
+
+	let showAlumno=function(name){
+		console.log(name);
+	}
+
+	infoAlumno("Alexander");
+	showAlumno("Marcos");
+
+	console.clear();
+	let saludar= (nombre="S/N") => console.log(nombre);
+
+	saludar();
+
+</script>
+</body>
+</html>
