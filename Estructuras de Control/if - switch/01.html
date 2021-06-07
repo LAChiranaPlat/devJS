@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Expresiones Condicionales</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		console.log("Expresiones Condicionales");
+		
+		let numero=10;
+
+		if(numero>0)
+			console.log("El numero ingresado es Positivo");
+
+		if(numero)
+			console.log("El valor ingresado es true")
+
+		if(numero>0)
+			console.log("El valor es mayor de 0")//solo esta linea obedecera al if
+			console.log("Y es Positivo")//esta linea no esta condicionada al if
+
+		if(numero<0)
+			console.log("El valor es menor de 0")
+			console.log("Y es Negativo")//esta linea no esta condicionada al if	
+
+		if(numero>0){
+			console.log("###################################");
+			console.log("El valor es mayor de 0")
+			console.log("Y es Positivo")	
+		}//todo lo que esta encerrado en {} obedece al if
+	
+
+	
+	let color="perro";
+
+	switch (color)
+	{
+
+		case "gallina":
+		case "pato":
+		case "paloma":
+		case "ganzo":
+			console.log("Oviparos");//mientras no se encuentre un break se continuara con ejecucion de ordenes
+			break;
+
+		case "perro": 
+		case "gato": 
+		case "conejo":
+			console.log("mamiferos");
+			break;
+
+		default:
+			console.warn("Animal desconocido");
+			break;
+
+	}
+
+	</script>
+</body>
+</html>
