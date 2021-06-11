@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicios JS: Condicional sin if</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		/*Traductor de colores*/
+
+		let color="black";
+
+		let colores={
+			red:"Rojo",
+			green:"Verde",
+			"blue":"Azul",
+			"purple":"Purpura",
+			"black":"Negro"
+		};
+
+		console.log(colores[color]);
+
+		let perPapa=true;//undefined	=>	false
+		let perMama=true;
+		let notasApro=true;
+		let tareasOk=true;
+
+		function todoOK(){
+			return perMama==true && perPapa==true && notasApro==true && tareasOk==true;
+		}
+
+
+
+		if(  todoOK() ){
+			console.log("compro Playstation");
+		}else{
+			console.log("sigue intentando");
+		}
+
+		//Evitar anidaciones: Siempre que sea posible
+
+		if(perMama==true && perPapa==true){
+
+			if(notasApro==true && tareasOk==true){
+
+			}
+
+		}
+
+		//Evites los switch
+
+		let edad=1000;
+
+		if(edad>300){
+			console.log("desconocido")
+		}else{
+			
+			if(edad<20){
+				console.log("es menor de 20");
+			}else if(edad<100){
+				console.log("es menor de 100");
+			}else{
+				console.log("desconocido");
+			}
+		}
+
+
+	
+	</script>
+
+</body>
+</html>

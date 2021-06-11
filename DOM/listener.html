@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Listener JS</title>
+	<style type="text/css">
+		.section{
+			width: 400px;
+			height: 400px;
+			background: silver;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="h1">Curso de Programación JS</h1>
+
+	<div>
+		<a href="#">parrafo</a>
+		
+		<form action="pro.php">
+			<input type="text" name="" placeholder="Escribir" />
+			<button type="submit">Enviar</button>
+		</form>
+	</div>
+
+	<div class="section" id="contenedor">
+		<button id="btn">Dame Click</button>
+	</div>
+
+	<script type="text/javascript">
+		const h1=document.getElementById("h1");
+		const link=document.querySelector("a");
+		const box=document.getElementById("contenedor");
+		const boton=document.getElementById("btn");
+
+		
+		//h1.onclick=()=>{}
+
+		h1.addEventListener("click",(evento)=>{
+			console.log(evento.target.innerHTML);
+		});	
+
+		h1.addEventListener("click",function(){
+			console.log(this.innerHTML);
+		});		
+
+		link.addEventListener("click",function(evento){
+			evento.preventDefault();
+			console.log(this.innerHTML);
+		});
+
+		document.forms[0].addEventListener("submit",function(informacion){
+			informacion.preventDefault();
+			console.log("Enviando");
+		});
+
+		box.addEventListener("click",()=>{
+			console.log("Estas dentro");
+		});
+
+		boton.addEventListener("click",(e)=>{
+			e.stopPropagation();
+			console.log("desde el boton");
+		});
+
+		/***************************************************************************************/
+		let a=setTimeout(()=>{
+			console.log("han pasado 2 Segundos");			
+		}, 2000);
+		
+		clearTimeout(a);
+
+		let b=setTimeout(()=>{
+			console.log("han pasado 2 Segundos");			
+		}, 2000);
+
+		let c=setTimeout(()=>{
+			console.log("han pasado 2 Segundos");			
+		}, 2000);
+
+		let n=0;
+		let x=setInterval(()=>{
+			if(n==3){
+				console.log("Cancelado");
+				clearInterval(x);
+				return
+			}
+			n++;
+			console.log("Advertencia N° ",n);
+		},500);
+
+
+	</script>
+</body>
+</html>

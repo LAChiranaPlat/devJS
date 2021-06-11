@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Pestañas</title>
+	<style type="text/css">
+
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.panel{
+			border: solid 1px silver;
+			width: 500px;
+			height: 300px;
+			background: white;
+			padding: 10px;
+			position: absolute;
+		}
+
+		.tags{
+			display: flex;
+			border: solid 1px silver;
+			width: 250px;
+		}
+
+		ul li{
+			width: 80px;
+			text-align: center;
+		}
+
+		.off{
+			opacity: 0;
+			pointer-events: none;
+		}
+
+	</style>
+</head>
+<body>
+
+	<ul class="tags">
+		<li><a href="#" class="tags__tag perfil">Perfil</a></li>
+		<li><a href="#" class="tags__tag cursos">Cursos</a></li>
+		<li><a href="#" class="tags__tag seguridad">Seguridad</a></li>
+	</ul>
+
+	<section>
+
+		<div class="panel perfil">
+			<p><strong>Usuario: Huarseral</strong></p>
+			<p><strong>Email: huarseral@hotmail.com</strong></p>
+		</div>
+
+		<div class="panel cursos off">
+			<ul>
+				<li><strong>Cursos</strong></li>
+				<li>Diseño 3D: Blender</li>
+				<li>Diseño Web: Frontend Expert</li>
+				<li>Backend Expert: Programación PHP</li>
+				<li>Backend Expert: Programación Python</li>
+			</ul>
+		</div>
+
+		<div class="panel seguridad off">
+			<p><strong>Contraseña: *****</strong><a href="#">Cambiar Clave</a></p>
+			<p><strong>Celular: *******51</strong><a href="#">Cambiar</a></p>
+		</div>
+	
+	</section>
+
+	<script type="text/javascript">
+		
+		const tab=document.querySelectorAll(".tags__tag");
+		const paneles=document.querySelectorAll(".panel");
+
+		function opcion(e){
+			e.preventDefault();
+
+			paneles[0].classList.add("off");
+			paneles[1].classList.add("off");
+			paneles[2].classList.add("off");
+
+			document.querySelector("div."+e.target.classList[1]).classList.remove("off");
+		}
+
+		tab.forEach((elemento)=>{
+			elemento.addEventListener("click",opcion);
+		});
+
+	</script>
+</body>
+</html>

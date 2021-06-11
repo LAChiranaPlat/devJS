@@ -7,29 +7,38 @@
 <script type="text/javascript">
 	
 
-	let cant1= 0;
-	let cant2= 4;
+	let cant1= 10;
+	let cant2= +"12";
 	let op="+";
 	let result=0;
 
 	//Calculadora Horrible
+
 
 		if(isNaN(cant1) || isNaN(cant2)){
 			throw "Solo se permiten numeros";
 		}else{
 
 			if(op=="+"){
+
 				result=cant1+cant2;
 				console.log(result);
+
 			}else if(op=="-"){
+
 				result=cant1-cant2;
 				console.log(result);
+
 			}else if(op=="/"){
+
 				result=cant1/cant2;
 				console.log(result);
+
 			}else if(op=="*"){
+
 				result=cant1*cant2;
 				console.log(result);
+
 			}
 		}
 	//si bien es cierto verificamos que sean numeros, solo puedo hacer 1 calculo a la vez, sin mencionar que tengo condicionales que hacen lo mismo: operan e imprimen, y aparte mucho codigo para hacer algo sencillo

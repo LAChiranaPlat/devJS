@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToolTipText</title>
+	<style type="text/css">
+		
+		*{
+			margin: 0;
+		}
+
+		div{
+			position: absolute;
+			left: 80px;
+			background: orange;
+			padding: 5px 10px;
+			border-radius: 5px;
+			border: solid 1px white;
+			box-shadow: 0 0 1px;
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		div span{
+			position: absolute;
+			top: -5px;
+
+			width: 0; 
+			height: 0; 
+			border-bottom: 10px solid orange;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent; 
+			z-index: 10;
+		}
+
+		.showToolTipText{
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+	</style>
+</head>
+<body>
+
+	<header>
+		<h1 id="h1">Team <abbr id="ab">LP</abbr></h1>
+		<div class="tttext">
+			<span></span>LAChirana Plat............... quieres saber mas <a href="#">más</a>
+		</div>
+		<p>Somos un grupo de jovenes introduciendonos en el mundo del desarrollo</p>
+	</header>
+
+	<script type="text/javascript">
+
+		const ab=document.getElementById("ab");
+		const tooltext=document.querySelector(".tttext");
+
+
+		ab.addEventListener("mouseover",()=>{
+			tooltext.classList.add("showToolTipText");
+
+			let _time=setTimeout(()=>{
+				tooltext.classList.remove("showToolTipText");
+				clearTimeout(_time);
+			},3000);
+
+		});
+
+		
+
+	</script>
+</body>
+</html>

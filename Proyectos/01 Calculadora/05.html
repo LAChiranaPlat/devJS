@@ -5,16 +5,24 @@
 </head>
 <body>
 <script type="text/javascript">
-	
-
-	
-	//Evitando if en lo que fuera posible
-
 	let operador;
 	let cant=0;
 	let result=0;
 
 	let ops=["+","-","/","*"];	
+
+	function x(){}
+
+	let aa=function(){}
+
+	aa();
+
+	(x,y)=>{
+		//ordenes
+		return 1;
+	}
+
+	()=>1
 
 	let operadores={
 				"+":()=>result+=cant,
@@ -25,16 +33,15 @@
 
 	function calculadora(cant1=result){
 
-		result=+cant1;
+		result= +cant1;
 		
 		operador=prompt("Operacion a realizar: +, -, *, /; de querer salir ingrese: =");
-
 
 		if(operador=="=")
 			return;
 
-		if(!ops.includes(operador))//Al meter las opciones de operacion en un array, con ayuda de su funcion include verificaremos si el operador ingresado esta o no.
-			throw "La operacion ingresada es incorrecta";//de no estar lanzara una excepcion
+		if(!ops.includes(operador))
+			throw "La operacion ingresada es incorrecta";
 
 		cant=+prompt("Ingrese Cantidad");
 
@@ -43,14 +50,12 @@
 			throw "Solo se permiten numeros";
 		}else{
 
-			console.log(operadores[operador]());
+			console.log(	operadores[operador]()	);
 			calculadora();
 
 		}
 
 	}
-
-	/*TERMINADO*/
 
 	function myCal(){
 		let n=prompt("Ingrese Cantidad");
