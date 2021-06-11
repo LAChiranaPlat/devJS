@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Galeria</title>
+</head>
+<body>
+
+	<div class="form">
+		<input type="file" multiple />
+	</div>
+
+	<div class="galeria">
+		<img src="" id="out" />
+	</div>
+
+	<script type="text/javascript">
+
+			console.log(window.File);
+
+			console.log(window.FileReader);
+			
+			console.log(window.FileList);
+
+			console.log(window.Blob);
+
+/*
+		const control=document.querySelector("input");
+		let out=document.getElementById("out");
+		
+		control.addEventListener("change",(e)=>{//al seleccionar imagen
+			let f=e.target;
+
+			let reader=new FileReader();
+
+			reader.addEventListener("load",()=>{ //cuando le cargo el fichero
+				let r=reader.result;
+				out.src=r;
+			});
+
+			reader.readAsDataURL(f.files[0]);
+
+		});
+*/
+
+	</script>
+</body>
+</html>
