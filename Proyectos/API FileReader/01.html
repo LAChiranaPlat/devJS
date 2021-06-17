@@ -2,45 +2,97 @@
 <html>
 <head>
 	<title>Galeria</title>
+	<style type="text/css">
+		
+		input{
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.content{
+			background: silver;
+			border: dashed 4px black;
+			width: 200px;
+			height: 200px;
+		}
+
+		.content label{
+			display: block;
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+		}
+
+		.itemList{
+			display: flex;
+			border: solid;
+			height: 30px;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+	</style>
 </head>
 <body>
 
 	<div class="form">
-		<input type="file" multiple />
+		<input type="file" multiple id="file" />
+		<div class="content">
+			<label class="subir" for="file">Subir Archivos</label>
+		</div>
 	</div>
+
+	<ul id="lista">
+		
+	</ul>
+	<p>Archivos en Lista: <span id="totalItems"></span></p>
 
 	<div class="galeria">
 		<img src="" id="out" />
 	</div>
 
+	<template>
+		<li class="itemList"><p class="items"></p> <a href="#" class="drop">X</a></li>
+	</template>
+
 	<script type="text/javascript">
 
-			console.log(window.File);
+			const input=document.getElementById("file");
+			const lista=document.getElementById("lista");
+			const itemsT=document.getElementById("totalItems");
 
-			console.log(window.FileReader);
-			
-			console.log(window.FileList);
+			let fragmento=document.createDocumentFragment();
+			let plantilla=document.querySelector("template").content;
 
-			console.log(window.Blob);
+			input.addEventListener("change",(e)=>{
+				console.log(e.target.files);
+				
+				for(f of e.target.files){
 
-/*
-		const control=document.querySelector("input");
-		let out=document.getElementById("out");
-		
-		control.addEventListener("change",(e)=>{//al seleccionar imagen
-			let f=e.target;
+					let clon=plantilla.cloneNode(true);
+					clon.querySelector(".items").textContent=f.name;
+					fragmento.appendChild(clon);
+				}
 
-			let reader=new FileReader();
+				lista.appendChild(fragmento);
+				itemsT.textContent=lista.querySelectorAll("li").length;
 
-			reader.addEventListener("load",()=>{ //cuando le cargo el fichero
-				let r=reader.result;
-				out.src=r;
 			});
 
-			reader.readAsDataURL(f.files[0]);
+			lista.addEventListener("click",(e)=>{
 
-		});
-*/
+				e.stopPropagation();
+				e.preventDefault();
+
+				if(e.target.classList.contains("drop"))
+				{
+					//console.log(e.target.parentNode);
+					lista.removeChild(e.target.parentNode);
+					itemsT.textContent=lista.querySelectorAll("li").length;
+				}
+
+			});
 
 	</script>
 </body>

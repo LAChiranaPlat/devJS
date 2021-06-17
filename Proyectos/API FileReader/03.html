@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Vista en Miniatura</title>
+	<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		.site{
+			width: 90%;
+			height: 400px;
+			background: lightgreen;
+			border: solid 1px green;
+			border-radius: 5px;
+			margin: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.site__content{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 120px;
+			background: green;
+			opacity: 0;
+			display: flex;
+		}
+
+		.show{
+			opacity: 1;
+		}
+
+		.preview{
+			width: 100px;
+			height: 100px;
+			border: solid 2px white;
+			margin: 10px 0 0 10px;
+			border-radius: 5px;
+			box-shadow: 0 0 3px white;
+			position: relative;
+			overflow: hidden;
+			background: white;
+		}
+
+		.preview img{
+			width: 100%;
+		}
+
+		.preview a{
+			position: absolute;
+			right: 2px;
+			top: 2px;
+			background: silver;
+			color: #333;
+			height: 25px;
+			width: 25px;
+			text-align: center;
+			line-height: 25px;
+			text-decoration: none;
+			border-radius: 30px;
+		}
+
+		.icon{
+			width: 40px;
+			height: 40px;
+			background: green;
+			margin: auto;
+			position: absolute;
+			display: none;
+		}
+
+	</style>
+
+</head>
+<body>
+
+		<div class="site">
+			<p>Arrastre sus archivos aqui</p>
+
+			<div class="site__content">
+			</div>
+
+		</div>
+
+		<template>
+			<figure class="preview">
+				<div class="icon"></div>
+				<a href="#" class="close">X</a> 
+				<img src="" class="preview__img" />
+			</figure>
+		</template>
+
+
+		<script type="text/javascript">
+			
+			function e(_class){
+				return document.querySelector(_class);
+			}
+/*
+			function listener(event,callbak){
+				callbak();
+			}
+*/
+			let x;
+			const control=e(".site");
+			const previews=e(".site__content");
+
+			const template=e("template").content;
+			const fragment=document.createDocumentFragment();
+
+			control.addEventListener("dragover",(e)=>{
+				e.preventDefault();
+				e.stopPropagation();
+
+				e.dataTransfer.dropEffect="copy";
+			});
+
+			control.addEventListener("drop",(e)=>{
+				e.preventDefault();
+				e.stopPropagation();
+
+				//input	=	e.target.files;
+				//drag & drop = e.dataTransfer.files;
+				
+				let files = e.dataTransfer.files;//es un objeto, lo podemos iterar
+
+				for(image of files){
+	
+					let lector=new FileReader();
+					
+					let clon=template.cloneNode(true);
+
+					lector.addEventListener("load",()=>{
+
+						clon.querySelector(".icon").style.display="none";
+
+						clon.querySelector("img").src=lector.result;
+
+						fragment.appendChild(clon);
+						previews.appendChild(fragment);
+						previews.classList.add("show");
+
+					});
+
+					lector.addEventListener("loadstart",()=>{
+						clon.querySelector(".icon").style.display="block";
+					});
+
+					lector.addEventListener("loadend",()=>{
+						
+					});
+
+					lector.addEventListener("error",()=>{});
+					lector.addEventListener("abort",()=>{});
+					lector.addEventListener("progress",()=>{});
+
+					lector.readAsDataURL(image);			
+
+				}
+			});
+
+			previews.addEventListener("click",(e)=>{
+				e.preventDefault();
+
+				if(e.target.classList.contains("close")){
+					
+					if(confirm("quieres borrarme")){
+
+						previews.removeChild(e.target.parentNode);
+
+					}
+
+				}
+			});
+
+		</script>
+</body>
+</html>

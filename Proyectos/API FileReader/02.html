@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	
+		.contenedor{
+			width: 800px;
+			height: 450px;
+			background: silver;
+			margin: auto;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<div class="contenedor"></div>
+
+	<script type="text/javascript">
+		
+		const content=document.querySelector(".contenedor");
+
+		content.addEventListener("dragover",(objeto)=>{
+
+			objeto.stopPropagation();
+			objeto.preventDefault();
+
+			objeto.dataTransfer.dropEffect="copy";
+		});
+
+		content.addEventListener("drop",(abc)=>{
+
+			abc.dataTransfer.files;
+
+			for(f of abc.dataTransfer.files){
+					/*
+					let clon=plantilla.cloneNode(true);
+					clon.querySelector(".items").textContent=f.name;
+					fragmento.appendChild(clon);
+					*/
+					console.log(f.name);
+				}
+
+		})
+
+
+	</script>
+</body>
+</html>

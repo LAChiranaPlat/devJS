@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Listener JS</title>
+	<style type="text/css">
+		
+		.cabecera{
+			color: white;
+			background: #333;
+		}
+
+		.items{
+			text-transform: uppercase;
+			color: white;
+			background: grey;
+			text-indent: 5px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<ul id="lista">
+	</ul>
+
+	<template>
+		<li class="items" id="original">Items de Computo</li>
+	</template>
+
+	<script type="text/javascript">
+		
+		const lista=document.getElementById("lista");
+
+		const fragmentoPagina=document.createDocumentFragment();
+		const plantilla=document.querySelector("template").content;
+
+		let items=["Memoria","Microprocesador","Disco Duro","Placa Madre", "Fuente de Poder"];
+
+		items.forEach((element)=>{
+			/*
+			const li=document.createElement("li");
+			const txtLi=document.createTextNode(element);
+
+			li.appendChild(txtLi);
+			fragmentoPagina.appendChild(li);
+			*/
+			const clon=plantilla.getElementById("original").cloneNode(true);
+			clon.textContent=element;
+			fragmentoPagina.appendChild(clon);
+
+		});
+
+		lista.appendChild(fragmentoPagina);
+
+	</script>
+
+</body>
+</html>
