@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uploading JS</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+
+		body{
+			border: solid;
+			width: 100%;
+			height: 100vh;
+			position: relative;
+		}
+
+		input{
+			display: none;
+		}
+
+		.thumbnails{
+			display: flex;
+		}
+
+		.thumb{
+			width: 100px;
+			height: 150px;
+			border: solid;
+			border-radius: 10px;
+			overflow: hidden; 
+			position: relative;
+		}
+
+		.thumb img{
+			width: 100%;
+		}
+
+		.thumb progress{
+			position: absolute;
+			bottom: 0;
+			left: 2%;
+			width: 95%;
+			margin: auto;			
+		}
+
+		.subir{
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 20px;
+			height: 20px;
+			background: green;
+			color: white;
+			text-align: center;
+			line-height: 20px;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" class="subir"> ^ </a>
+	<input type="file" name="" id="control" multiple />
+	<div class="thumbnails"></div>
+
+
+	<template>
+		<figure class="thumb">
+			<a href="#" class="dropImage">X</a>
+			<img src="" class="" />
+			<p class="label"></p>
+			<progress value="0" max="100" >			
+		</figure>
+	</template>
+	<script type="module">
+		
+		import { up } from "./uploading.js";
+
+
+		let objJS={
+			cArrastre:document.body,
+			cImages:document.querySelector(".thumbnails"),
+			template:document.querySelector("template").content,
+			input:document.getElementById("control"),
+			up:document.querySelector(".subir")
+		}
+
+		up(objJS);
+
+		
+
+	</script>
+
+</body>
+
+
+
+</html>
