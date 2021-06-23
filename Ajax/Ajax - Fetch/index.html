@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button id="submit">Ingresar</button>
+
+
+	<script type="text/javascript">
+		
+		let btn=document.getElementById("submit");
+
+		btn.addEventListener("click",()=>{
+
+			let usuario="alexzzzzzzzzzzzzz";
+			let clave="12zzzzzzzzzzzzz3";
+
+			let frm=new FormData();
+
+			frm.append("user",usuario);
+			frm.append("key",clave);
+
+			let objAjax=new XMLHttpRequest;
+
+			objAjax.addEventListener("load",(e)=>{
+
+				if(e.target.status==200){
+					console.log(e.target.response);
+				}
+
+			});
+
+			//objAjax.open("get",`data.php?usuario=${usuario}&clave=${clave}`);
+			
+			objAjax.open("post","data.php");
+			
+			objAjax.send(frm);
+
+		});
+
+	</script>
+</body>
+</html>

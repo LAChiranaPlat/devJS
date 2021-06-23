@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+
+	<button id="submit">Ingresar</button>
+	
+	<script type="text/javascript">
+			
+		//let btn=document.getElementById("submit");
+
+		//btn.addEventListener("click",()=>{
+
+			//retorna una promesa
+			
+			/*
+			fetch("data.php")//retorna promesa
+				.then(e=>console.log(e));
+			*/
+
+		//});
+
+		function observacion(nf){
+			
+			return new Promise((resolve,reject)=>{
+				
+				if(nf<0 || nf>20){
+					throw "Nota no permitida";
+				}
+
+				if(nf>=11){
+					resolve("Aprobado");
+				}else{
+					reject("desaprobado");
+				}			
+
+			});
+
+		}
+
+		observacion(10)
+			.then(message=>console.log(message)).then().then()
+			.catch(error=>console.error("Información del Error: ",error));
+
+/*
+		proceso.
+		then((userName)=>{
+			console.log(userName);
+		})
+		.catch((error)=>{
+			console.error(error);
+		});
+*/
+	</script>
+</body>
+</html>
